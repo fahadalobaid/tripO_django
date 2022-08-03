@@ -1,6 +1,7 @@
 from django.contrib.auth.models import User
 from rest_framework import serializers
 from rest_framework_simplejwt.tokens import RefreshToken
+from .models import Trip
 
 
 class UserCreateSerializer(serializers.ModelSerializer):
@@ -42,3 +43,22 @@ class UserLoginSerializer(serializers.Serializer):
 
         data["access"] = token
         return data
+
+
+class ListSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Trip
+        fields = ('title','image')
+
+
+
+class TripsDetailSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Trip
+        fields = '__all__'
+
+
+class CreateTripSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Trip
+        fields = '__all__'
