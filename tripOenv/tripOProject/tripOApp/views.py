@@ -9,6 +9,11 @@ from django.http import HttpResponse
 
 class UserCreateAPIView(CreateAPIView):
     serializer_class = UserCreateSerializer
+    # def get_serializer_class(self):
+    #     # print(self.request.data)
+    #     return UserCreateSerializer
+
+
 
 
 
@@ -24,14 +29,14 @@ class UserLoginAPIView(APIView):
         return Response(serializer.errors, HTTP_400_BAD_REQUEST)
 
 
-def get_Trip(request,trip_id):
-    trip = Trip.objects.get(id=trip_id)
-    return HttpResponse(trip)
+# def get_Trip(request,trip_id):
+#     trip = Trip.objects.get(id=trip_id)
+#     return HttpResponse(trip)
 
-def get_trip_list(request) :
-    Trips = Trip.objects.all().values_list( flat=True)
-    Trips_list = "\n".join(f"<li>{Trip}</li>" for Trip in Trips)
-    return HttpResponse({Trips_list})
+# def get_trip_list(request) :
+#     Trips = Trip.objects.all().values_list( flat=True)
+#     Trips_list = "\n".join(f"<li>{Trip}</li>" for Trip in Trips)
+#     return HttpResponse({Trips_list})
 
 class TripListApiView(ListAPIView):
     queryset = Trip.objects.all()
@@ -46,3 +51,5 @@ class DetailView(RetrieveAPIView):
 
 class CreateTripView(CreateAPIView):
     serializer_class = CreateTripSerializer
+
+

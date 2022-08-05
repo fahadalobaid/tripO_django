@@ -1,7 +1,8 @@
+import profile
 from django.contrib.auth.models import User
 from rest_framework import serializers
 from rest_framework_simplejwt.tokens import RefreshToken
-from .models import Trip
+from .models import Trip , Profile
 
 
 class UserCreateSerializer(serializers.ModelSerializer):
@@ -16,6 +17,7 @@ class UserCreateSerializer(serializers.ModelSerializer):
         new_user = User(username=username)
         new_user.set_password(password)
         new_user.save()
+        Profile.objects.create(user=new_user)
         return validated_data
 
 

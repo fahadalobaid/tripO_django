@@ -21,9 +21,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('register/', views.UserCreateAPIView.as_view()),
     path('login/', views.UserLoginAPIView.as_view()),
-    path("Trips/<int:trip_id>", views.get_Trip),
-    path("Explore/", views.get_trip_list),
-    path("TripApi/", views.TripListApiView.as_view()),
+    # path("Trips/<int:trip_id>", views.get_Trip),
+    # path("Explore/", views.get_trip_list),
+    path("getTripApi/", views.TripListApiView.as_view()),
     path('detailRet/<int:object_id>/', views.DetailView.as_view(), name='detail'),
     path('CreatTripApi/', views.CreateTripView.as_view()),
 ]
