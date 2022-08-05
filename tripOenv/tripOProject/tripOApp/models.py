@@ -1,5 +1,6 @@
 
 import email
+from email.policy import default
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -16,9 +17,9 @@ from django.contrib.auth.models import User
 
 
 
-
 class Profile(models.Model):
     user = models.OneToOneField( User,on_delete=models.CASCADE,)
+  
     image = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100,)
     firstname = models.CharField(max_length=20)
     lastname = models.CharField(max_length=20)
@@ -31,12 +32,14 @@ class Profile(models.Model):
 
 
 class Trip(models.Model):
-    trip = models.ForeignKey( Profile,on_delete=models.CASCADE,related_name="trips", )
+    owner = models.ForeignKey( Profile,on_delete=models.CASCADE,related_name="trips", )
     title = models.CharField(max_length=20)
     description = models.TextField(max_length=250)
     image = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100,)
 
     def __str__(self):
         return self.title
+
+
 
 

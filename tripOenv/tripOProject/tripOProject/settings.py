@@ -12,8 +12,8 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 from datetime import timedelta
-import os
-import sys
+# import os
+# import sys
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -28,12 +28,12 @@ SECRET_KEY = 'django-insecure-#8#z6d16%f*jb+jkax5wvc@lc)o!tfo=k=jj0#ib^+f)-@fcsj
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["464b-188-236-135-194.in.ngrok.io"]
-DEV_SERVER = len(sys.argv) > 1 and sys.argv[1] == "runserver"
+ALLOWED_HOSTS = []
+# DEV_SERVER = len(sys.argv) > 1 and sys.argv[1] == "runserver"
 
-USE_NGROK = os.environ.get("USE_NGROK", "False") == "True" and os.environ.get("RUN_MAIN", None) != "true"
+# USE_NGROK = os.environ.get("USE_NGROK", "False") == "True" and os.environ.get("RUN_MAIN", None) != "true"
 
-CSRF_TRUSTED_ORIGINS = ["https://464b-188-236-135-194.in.ngrok.io"]
+# CSRF_TRUSTED_ORIGINS = ["https://464b-188-236-135-194.in.ngrok.io"]
 
 
 REST_FRAMEWORK = {
