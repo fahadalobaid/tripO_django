@@ -6,8 +6,9 @@ from rest_framework.status import HTTP_200_OK, HTTP_400_BAD_REQUEST
 from rest_framework.views import APIView
 from .models import Trip
 from django.http import HttpResponse
+from rest_framework import generics
 
-class UserCreateAPIView(CreateAPIView):
+class UserCreateAPIView(generics.CreateAPIView):
     serializer_class = UserCreateSerializer
     # def get_serializer_class(self):
     #     # print(self.request.data)
